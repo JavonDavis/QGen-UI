@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html ng-app="Variables">
+{% load staticfiles %}
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="QGen">
+    <meta name="author" content="Javon Davis">
+    <title>Demo</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <link href="{% static 'css/starter-template.css' %}" rel="stylesheet">
+
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link href='https://fonts.googleapis.com/css?family=Quicksand:400,700' rel='stylesheet' type='text/css'>
+    <link href="{%  static 'css/main.css' %}" rel='stylesheet' type='text/css'>
+    <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+</head>
+<body>
+
+    <div class="container">
+        <h1 class="title text-center">Build a Question!</h1>
+            <form action="{% url 'generate' %}" method="post" > {% csrf_token %}
+          <fieldset class="form-group">
+            <label for="tile">Title</label>
+            <input type="text" class="form-control" id="title" placeholder="E.g.(Polynomials, PunctuationEasy)" name="title">
+            <small class="text-muted">Something you can use to identify your question..</small>
+          </fieldset>
+          <fieldset class="form-group">
+            <label for="type">Type</label>
+            <select class="form-control" id="type" name="type">
+              <option>Multiple Choice</option>
+              <option>Short Answer</option>
+            </select>
+                  <div ng-controller="MainCtrl">
+                <div id="list">
+                    <h3 class="title">Variables</h3>
+            <div class="list_item col-md-2 btn btn-default" ng-repeat="variable in variables" >
+                {% verbatim %}{{ variable }} {% endverbatim %}
+                <span ng-click="removeItem($index)" style="float:right;" class="close_btn">&times;</span>
+            </div>
+         </div>
+          <div id="add_new">
+            <h3 class="title">Add Variable</h3>
+            <uib-alert type="{% verbatim %}{{ alert.type}} {% endverbatim %}" ng-if="alert.show">{% verbatim %} {{ alert.msg }} {% endverbatim %}</uib-alert>
+
+            <input type="text" class="form-control" ng-model="newvariable"/>
+            <button class="btn btn-default" type="button" data-toggle="modal" data-target="#addVariable">Add</button>
+          </div>
+              </div>
+          </fieldset>
+                <fieldset class="form-group">
+                <label for="bodyText">Body</label>
+                <textarea class="form-control" id="bodyText" rows="4" name="body"></textarea>
+            </fieldset>
+                <fieldset class="form-group">
+                <label for="answer1Text">Possible Answer...</label>
+                <textarea class="form-control" id="answer1Text" rows="4" name="answer1"></textarea>
+                    <input type="checkbox" id="answer1Checkbox" name="isAnswer1Correct"> Correct
+            </fieldset>
+                <fieldset class="form-group">
+                <label for="answer2Text">Possible Answer...</label>
+                <textarea class="form-control" id="answer2Text" rows="4" name="answer2"></textarea>
+                    <input type="checkbox" id="answer2Checkbox" name="isAnswer2Correct"> Correct
+            </fieldset>
+                <fieldset class="form-group">
+                <label for="answer3Text">Possible Answer...</label>
+                <textarea class="form-control" id="answer3Text" rows="4" name="answer3"></textarea>
+                    <input type="checkbox" id="answer3Checkbox" name="isAnswer3Correct"> Correct
+            </fieldset>
+                <fieldset class="form-group">
+                <label for="answer4Text">Possible Answer...</label>
+                <textarea class="form-control" id="answer4Text" rows="4" name="answer4"></textarea>
+                    <input type="checkbox" id="answer4Checkbox" name="isAnswer4Correct"> Correct
+            </fieldset>
+                <fieldset class="form-group">
+                <label for="answer5Text">Possible Answer...</label>
+                <textarea class="form-control" id="answer5Text" rows="4" name="answer5"></textarea>
+                    <input type="checkbox" id="answer5Checkbox" name="isAnswer5Correct"> Correct
+            </fieldset>
+                <button type="submit" class="btn btn-primary center-block">Build</button>
+      </form>
+        <br>
+    </div>
+
+    <!-- Add Variable -->
+<div id="addVariable" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Add a new question variable</h4>
+      </div>
+      <div class="modal-body">
+        <form id="varForm">
+            <fieldset class="form-group">
+            <label for="tile">Variable Name</label>
+            <input type="text" class="form-control" id="title" placeholder="E.g.(num1, word2) NB: when using it in the question enclose it within {}" name="name">
+            <small class="text-muted">The name to reference this variable by... </small>
+          </fieldset>
+
+            <fieldset class="form-group">
+            <label for="tile">Generator Name</label>
+            <input type="text" class="form-control" id="title" placeholder="E.g.(random, set)" name="function_name">
+            <small class="text-muted">The name of the generator for the variable...</small>
+          </fieldset>
+            <label >Generator Parameters</label>
+            <fieldset class="form-inline">
+                <input type="text" class="form-control" id="title" placeholder="Param name" name="param_name_1">
+                <input type="text" class="form-control" id="title" placeholder="Param value" name="param_value_1">
+          </fieldset>
+<label ></label>
+            <fieldset class="form-inline">
+                <input type="text" class="form-control" id="title" placeholder="Param name" name="param_name_2">
+                <input type="text" class="form-control" id="title" placeholder="Param value" name="param_value_2">
+          </fieldset>
+<label ></label>
+            <fieldset class="form-inline">
+                <input type="text" class="form-control" id="title" placeholder="Param name" name="param_name_3">
+                <input type="text" class="form-control" id="title" placeholder="Param value" name="param_value_3">
+          </fieldset>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" id="addVar">Add Variable</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/1.2.1/ui-bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/1.2.1/ui-bootstrap-tpls.js"></script>
+<script src="{%  static 'js/app.js' %}"></script>
+    <script type="application/javascript">
+        var csrf_token = "{% csrf_token %}";
+        var x = csrf_token.indexOf("value='") + 7;
+        var y = csrf_token.lastIndexOf("'");
+        var token = csrf_token.substring(x,y);
+    $("body").bind("ajaxSend", function(elm, xhr, s) {
+   if (s.type == "POST") {
+      xhr.setRequestHeader('X-CSRF-Token', token);
+   }
+});
+
+    $("#addVar").click( function() {
+    $.post("/add/", {"data":$('#varForm').serialize()}, function () {
+        console.log("success");
+    }).fail(function() {
+   alert("error");
+});
+});
+    </script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+</body>
+</html>
