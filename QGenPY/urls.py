@@ -24,5 +24,6 @@ urlpatterns = [
     url(r'^thanks/', views.thanks, name='thanks'),
     url(r'^gen/', views.generate, name='generate'),
     url(r'^add/', views.add_param, name='add'),
+    url(r'^del/', views.remove_param, name='del'),
     url(r'^admin/', admin.site.urls),
 ]

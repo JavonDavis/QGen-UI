@@ -19,9 +19,9 @@
     <link href="{%  static 'css/main.css' %}" rel='stylesheet' type='text/css'>
     <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
 </head>
-<body>
+<body ng-controller="MainCtrl">
 
-    <div class="container">
+    <div class="container" >
         <h1 class="title text-center">Build a Question!</h1>
             <form action="{% url 'generate' %}" method="post" > {% csrf_token %}
           <fieldset class="form-group">
@@ -35,21 +35,19 @@
               <option>Multiple Choice</option>
               <option>Short Answer</option>
             </select>
-                  <div ng-controller="MainCtrl">
-                <div id="list">
-                    <h3 class="title">Variables</h3>
-            <div class="list_item col-md-2 btn btn-default" ng-repeat="variable in variables" >
-                {% verbatim %}{{ variable }} {% endverbatim %}
-                <span ng-click="removeItem($index)" style="float:right;" class="close_btn">&times;</span>
-            </div>
-         </div>
-          <div id="add_new">
-            <h3 class="title">Add Variable</h3>
-            <uib-alert type="{% verbatim %}{{ alert.type}} {% endverbatim %}" ng-if="alert.show">{% verbatim %} {{ alert.msg }} {% endverbatim %}</uib-alert>
-
-            <input type="text" class="form-control" ng-model="newvariable"/>
-            <button class="btn btn-default" type="button" data-toggle="modal" data-target="#addVariable">Add</button>
-          </div>
+                  <div >
+                        <div id="list">
+                            <h3 class="title">Variables</h3>
+                            <div class="list_item col-md-2 btn btn-default" ng-repeat="variable in variables" >
+                                {% verbatim %}{{ variable }} {% endverbatim %}
+                                <span ng-click="removeItem($index)" style="float:right;" class="close_btn" onclick="deleteVariable(this)">&times;</span>
+                            </div>
+                        </div>
+                        <div id="add_new">
+                            <h3 class="title">Add Variable</h3>
+                            <uib-alert type="{% verbatim %}{{ alert.type}} {% endverbatim %}" ng-if="alert.show">{% verbatim %} {{ alert.msg }} {% endverbatim %}</uib-alert>
+                            <button class="btn btn-default" type="button" data-toggle="modal" data-target="#addVariable" >Add</button>
+                        </div>
               </div>
           </fieldset>
                 <fieldset class="form-group">
@@ -96,11 +94,11 @@
         <button type="button" class="close" data-dismiss="modal">&times;</button>
         <h4 class="modal-title">Add a new question variable</h4>
       </div>
-      <div class="modal-body">
+      <div class="modal-body" >
         <form id="varForm">
             <fieldset class="form-group">
             <label for="tile">Variable Name</label>
-            <input type="text" class="form-control" id="title" placeholder="E.g.(num1, word2) NB: when using it in the question enclose it within {}" name="name">
+            <input type="text" class="form-control" id="title" placeholder="E.g.(num1, word2) NB: when using it in the question enclose it within {}" name="name" ng-model="newvariable">
             <small class="text-muted">The name to reference this variable by... </small>
           </fieldset>
 
@@ -127,7 +125,7 @@
         </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal" id="addVar">Add Variable</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal" id="addVar" ng-click="addvariable(newvariable)">Add Variable</button>
       </div>
     </div>
 
@@ -149,12 +147,18 @@
 });
 
     $("#addVar").click( function() {
-    $.post("/add/", {"data":$('#varForm').serialize()}, function () {
-        console.log("success");
-    }).fail(function() {
-   alert("error");
-});
-});
+        $.post("/add/", {"data":$('#varForm').serialize()}, function () {
+            console.log("success");
+        }).fail(function() {
+       alert("error");
+    });});
+
+        function deleteVariable(el) {
+        $.post("/del/", {"data":$(el).parent().text()}, function () {
+            console.log("success");
+        }).fail(function() {
+       alert("error");
+    })}
     </script>
     <script src="{% static 'js/bootstrap.min.js' %}"></script>
 </body>

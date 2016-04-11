@@ -48,9 +48,20 @@ def add_param(request):
     params[normalise(data_dict['name'])] = generator_holder_dict
     return HttpResponse("Successfully added")
 
+@csrf_exempt
+def remove_param(request):
+    name = request.POST['data']
+
+    normalised_name = normalise(name)
+    normalised_name = normalised_name.strip(' \t\n\r')
+    if normalised_name in params:
+        params.pop(normalised_name, None)
+    return HttpResponse("Successfully removed key")
+
 
 def normalise(string):
     return unicodedata.normalize('NFKD', string).encode('ascii', 'ignore')
+
 
 def generate(request):
     if request.method == 'POST':
@@ -83,15 +94,15 @@ def generate(request):
                 else:
                     qgen_dict['distractor'].append(normalise(data[answer_field]))
         final_dict = {file_title: qgen_dict}
-        result = qgen.build_moodle_xml(dict_value=final_dict, question= file_title)
+        result = qgen.build_moodle_xml(dict_value=final_dict, question=file_title)
         response = HttpResponse(content_type='application/force-download')
         file_title = title.lower().replace(" ", "_")
-        response['Content-Disposition'] = 'attachment; filename=%s' % (smart_str(file_title)+".xml")
+        response['Content-Disposition'] = 'attachment; filename=%s' % (smart_str(file_title) + ".xml")
 
-        response['X-Sendfile'] = smart_str(os.getcwd()+'/generated_quizzes/%s.xml'%file_title)
+        response['X-Sendfile'] = smart_str(os.getcwd() + '/generated_quizzes/%s.xml' % file_title)
         # It's usually a good idea to set the 'Content-Length' header too.
         # You can also set any other required headers: Cache-Control, etc.
         response.write(result)
         return response
-       # return render(request, 'data.xml', {'result':result})
+        # return render(request, 'data.xml', {'result':result})
     return render(request, 'demo.html')

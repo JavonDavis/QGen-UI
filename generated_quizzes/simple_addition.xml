@@ -9,7 +9,7 @@
 	<question type="multichoice"><name>
 		<text>Simple Addition</text>
 		</name><questiontext format="html">
-		<text>What is the sum of the following? 18 + 94</text>
+		<text>What is the sum of 79 + 81?</text>
 		</questiontext><generalfeedback format="html">
 		<text></text>
 		</generalfeedback>
@@ -30,28 +30,28 @@
 		</incorrectfeedback>
 
 		<answer fraction="100" format="moodle_auto_format">
-			<text>The answer is 112</text>
+			<text>160</text>
 			<feedback format="html">
 				<text></text>
 			</feedback>
 		</answer>
 
 		<answer fraction="0" format="moodle_auto_format">
-			<text>The answer is 0</text>
+			<text>-2</text>
 			<feedback format="html">
 				<text></text>
 			</feedback>
 		</answer>
 
 		<answer fraction="0" format="moodle_auto_format">
-			<text>The answer is 1692</text>
+			<text>0</text>
 			<feedback format="html">
 				<text></text>
 			</feedback>
 		</answer>
 
 		<answer fraction="0" format="moodle_auto_format">
-			<text>The answer is -76</text>
+			<text>6399</text>
 			<feedback format="html">
 				<text></text>
 			</feedback>
@@ -62,7 +62,7 @@
 	<question type="multichoice"><name>
 		<text>Simple Addition</text>
 		</name><questiontext format="html">
-		<text>What is the sum of the following? 87 + 93</text>
+		<text>What is the sum of 90 + 34?</text>
 		</questiontext><generalfeedback format="html">
 		<text></text>
 		</generalfeedback>
@@ -83,28 +83,28 @@
 		</incorrectfeedback>
 
 		<answer fraction="100" format="moodle_auto_format">
-			<text>The answer is 180</text>
+			<text>124</text>
 			<feedback format="html">
 				<text></text>
 			</feedback>
 		</answer>
 
 		<answer fraction="0" format="moodle_auto_format">
-			<text>The answer is 0</text>
+			<text>56</text>
 			<feedback format="html">
 				<text></text>
 			</feedback>
 		</answer>
 
 		<answer fraction="0" format="moodle_auto_format">
-			<text>The answer is 8091</text>
+			<text>2</text>
 			<feedback format="html">
 				<text></text>
 			</feedback>
 		</answer>
 
 		<answer fraction="0" format="moodle_auto_format">
-			<text>The answer is -6</text>
+			<text>3060</text>
 			<feedback format="html">
 				<text></text>
 			</feedback>
@@ -115,7 +115,7 @@
 	<question type="multichoice"><name>
 		<text>Simple Addition</text>
 		</name><questiontext format="html">
-		<text>What is the sum of the following? 21 + 99</text>
+		<text>What is the sum of 77 + 57?</text>
 		</questiontext><generalfeedback format="html">
 		<text></text>
 		</generalfeedback>
@@ -136,28 +136,28 @@
 		</incorrectfeedback>
 
 		<answer fraction="100" format="moodle_auto_format">
-			<text>The answer is 120</text>
+			<text>134</text>
 			<feedback format="html">
 				<text></text>
 			</feedback>
 		</answer>
 
 		<answer fraction="0" format="moodle_auto_format">
-			<text>The answer is 0</text>
+			<text>20</text>
 			<feedback format="html">
 				<text></text>
 			</feedback>
 		</answer>
 
 		<answer fraction="0" format="moodle_auto_format">
-			<text>The answer is 2079</text>
+			<text>1</text>
 			<feedback format="html">
 				<text></text>
 			</feedback>
 		</answer>
 
 		<answer fraction="0" format="moodle_auto_format">
-			<text>The answer is -78</text>
+			<text>4389</text>
 			<feedback format="html">
 				<text></text>
 			</feedback>
@@ -168,7 +168,7 @@
 	<question type="multichoice"><name>
 		<text>Simple Addition</text>
 		</name><questiontext format="html">
-		<text>What is the sum of the following? 13 + 51</text>
+		<text>What is the sum of 21 + 94?</text>
 		</questiontext><generalfeedback format="html">
 		<text></text>
 		</generalfeedback>
@@ -189,28 +189,28 @@
 		</incorrectfeedback>
 
 		<answer fraction="100" format="moodle_auto_format">
-			<text>The answer is 64</text>
+			<text>115</text>
 			<feedback format="html">
 				<text></text>
 			</feedback>
 		</answer>
 
 		<answer fraction="0" format="moodle_auto_format">
-			<text>The answer is 0</text>
+			<text>-73</text>
 			<feedback format="html">
 				<text></text>
 			</feedback>
 		</answer>
 
 		<answer fraction="0" format="moodle_auto_format">
-			<text>The answer is 663</text>
+			<text>0</text>
 			<feedback format="html">
 				<text></text>
 			</feedback>
 		</answer>
 
 		<answer fraction="0" format="moodle_auto_format">
-			<text>The answer is -38</text>
+			<text>1974</text>
 			<feedback format="html">
 				<text></text>
 			</feedback>
@@ -221,7 +221,7 @@
 	<question type="multichoice"><name>
 		<text>Simple Addition</text>
 		</name><questiontext format="html">
-		<text>What is the sum of the following? 10 + 60</text>
+		<text>What is the sum of 69 + 47?</text>
 		</questiontext><generalfeedback format="html">
 		<text></text>
 		</generalfeedback>
@@ -242,28 +242,28 @@
 		</incorrectfeedback>
 
 		<answer fraction="100" format="moodle_auto_format">
-			<text>The answer is 70</text>
+			<text>116</text>
 			<feedback format="html">
 				<text></text>
 			</feedback>
 		</answer>
 
 		<answer fraction="0" format="moodle_auto_format">
-			<text>The answer is 0</text>
+			<text>22</text>
 			<feedback format="html">
 				<text></text>
 			</feedback>
 		</answer>
 
 		<answer fraction="0" format="moodle_auto_format">
-			<text>The answer is 600</text>
+			<text>1</text>
 			<feedback format="html">
 				<text></text>
 			</feedback>
 		</answer>
 
 		<answer fraction="0" format="moodle_auto_format">
-			<text>The answer is -50</text>
+			<text>3243</text>
 			<feedback format="html">
 				<text></text>
 			</feedback>
@@ -274,7 +274,7 @@
 	<question type="multichoice"><name>
 		<text>Simple Addition</text>
 		</name><questiontext format="html">
-		<text>What is the sum of the following? 57 + 44</text>
+		<text>What is the sum of 80 + 99?</text>
 		</questiontext><generalfeedback format="html">
 		<text></text>
 		</generalfeedback>
@@ -295,28 +295,28 @@
 		</incorrectfeedback>
 
 		<answer fraction="100" format="moodle_auto_format">
-			<text>The answer is 101</text>
+			<text>179</text>
 			<feedback format="html">
 				<text></text>
 			</feedback>
 		</answer>
 
 		<answer fraction="0" format="moodle_auto_format">
-			<text>The answer is 1</text>
+			<text>-19</text>
 			<feedback format="html">
 				<text></text>
 			</feedback>
 		</answer>
 
 		<answer fraction="0" format="moodle_auto_format">
-			<text>The answer is 2508</text>
+			<text>0</text>
 			<feedback format="html">
 				<text></text>
 			</feedback>
 		</answer>
 
 		<answer fraction="0" format="moodle_auto_format">
-			<text>The answer is 13</text>
+			<text>7920</text>
 			<feedback format="html">
 				<text></text>
 			</feedback>
@@ -327,7 +327,7 @@
 	<question type="multichoice"><name>
 		<text>Simple Addition</text>
 		</name><questiontext format="html">
-		<text>What is the sum of the following? 20 + 64</text>
+		<text>What is the sum of 20 + 87?</text>
 		</questiontext><generalfeedback format="html">
 		<text></text>
 		</generalfeedback>
@@ -348,28 +348,28 @@
 		</incorrectfeedback>
 
 		<answer fraction="100" format="moodle_auto_format">
-			<text>The answer is 84</text>
+			<text>107</text>
 			<feedback format="html">
 				<text></text>
 			</feedback>
 		</answer>
 
 		<answer fraction="0" format="moodle_auto_format">
-			<text>The answer is 0</text>
+			<text>-67</text>
 			<feedback format="html">
 				<text></text>
 			</feedback>
 		</answer>
 
 		<answer fraction="0" format="moodle_auto_format">
-			<text>The answer is 1280</text>
+			<text>0</text>
 			<feedback format="html">
 				<text></text>
 			</feedback>
 		</answer>
 
 		<answer fraction="0" format="moodle_auto_format">
-			<text>The answer is -44</text>
+			<text>1740</text>
 			<feedback format="html">
 				<text></text>
 			</feedback>
@@ -380,7 +380,7 @@
 	<question type="multichoice"><name>
 		<text>Simple Addition</text>
 		</name><questiontext format="html">
-		<text>What is the sum of the following? 37 + 42</text>
+		<text>What is the sum of 42 + 23?</text>
 		</questiontext><generalfeedback format="html">
 		<text></text>
 		</generalfeedback>
@@ -401,28 +401,28 @@
 		</incorrectfeedback>
 
 		<answer fraction="100" format="moodle_auto_format">
-			<text>The answer is 79</text>
+			<text>65</text>
 			<feedback format="html">
 				<text></text>
 			</feedback>
 		</answer>
 
 		<answer fraction="0" format="moodle_auto_format">
-			<text>The answer is 0</text>
+			<text>19</text>
 			<feedback format="html">
 				<text></text>
 			</feedback>
 		</answer>
 
 		<answer fraction="0" format="moodle_auto_format">
-			<text>The answer is 1554</text>
+			<text>1</text>
 			<feedback format="html">
 				<text></text>
 			</feedback>
 		</answer>
 
 		<answer fraction="0" format="moodle_auto_format">
-			<text>The answer is -5</text>
+			<text>966</text>
 			<feedback format="html">
 				<text></text>
 			</feedback>
@@ -433,7 +433,7 @@
 	<question type="multichoice"><name>
 		<text>Simple Addition</text>
 		</name><questiontext format="html">
-		<text>What is the sum of the following? 72 + 21</text>
+		<text>What is the sum of 74 + 86?</text>
 		</questiontext><generalfeedback format="html">
 		<text></text>
 		</generalfeedback>
@@ -454,28 +454,28 @@
 		</incorrectfeedback>
 
 		<answer fraction="100" format="moodle_auto_format">
-			<text>The answer is 93</text>
+			<text>160</text>
 			<feedback format="html">
 				<text></text>
 			</feedback>
 		</answer>
 
 		<answer fraction="0" format="moodle_auto_format">
-			<text>The answer is 3</text>
+			<text>-12</text>
 			<feedback format="html">
 				<text></text>
 			</feedback>
 		</answer>
 
 		<answer fraction="0" format="moodle_auto_format">
-			<text>The answer is 1512</text>
+			<text>0</text>
 			<feedback format="html">
 				<text></text>
 			</feedback>
 		</answer>
 
 		<answer fraction="0" format="moodle_auto_format">
-			<text>The answer is 51</text>
+			<text>6364</text>
 			<feedback format="html">
 				<text></text>
 			</feedback>
@@ -486,7 +486,7 @@
 	<question type="multichoice"><name>
 		<text>Simple Addition</text>
 		</name><questiontext format="html">
-		<text>What is the sum of the following? 94 + 33</text>
+		<text>What is the sum of 2 + 2?</text>
 		</questiontext><generalfeedback format="html">
 		<text></text>
 		</generalfeedback>
@@ -507,28 +507,28 @@
 		</incorrectfeedback>
 
 		<answer fraction="100" format="moodle_auto_format">
-			<text>The answer is 127</text>
+			<text>4</text>
 			<feedback format="html">
 				<text></text>
 			</feedback>
 		</answer>
 
 		<answer fraction="0" format="moodle_auto_format">
-			<text>The answer is 2</text>
+			<text>0</text>
 			<feedback format="html">
 				<text></text>
 			</feedback>
 		</answer>
 
 		<answer fraction="0" format="moodle_auto_format">
-			<text>The answer is 3102</text>
+			<text>1</text>
 			<feedback format="html">
 				<text></text>
 			</feedback>
 		</answer>
 
 		<answer fraction="0" format="moodle_auto_format">
-			<text>The answer is 61</text>
+			<text>4</text>
 			<feedback format="html">
 				<text></text>
 			</feedback>
