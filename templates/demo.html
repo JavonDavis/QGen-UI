@@ -23,7 +23,7 @@
 
     <div class="container" >
         <h1 class="title text-center">Build a Question!</h1>
-            <form action="{% url 'generate' %}" method="post" > {% csrf_token %}
+            <form action="{% url 'generate' %}" method="post" enctype="multipart/form-data"> {% csrf_token %}
           <fieldset class="form-group">
             <label for="tile">Title</label>
             <input type="text" class="form-control" id="title" placeholder="E.g.(Polynomials, PunctuationEasy)" name="title">
@@ -33,6 +33,11 @@
             <label for="tile">Number of questions</label>
             <input type="text" class="form-control" id="count" placeholder="10,20,500..." name="count">
             <small class="text-muted">Number of questions to attempt to generate</small>
+          </fieldset>
+           <fieldset class="form-group">
+            <label for="tile">Imports</label>
+            <input type="file" class="form-control" id="file" placeholder="file" name="file">
+            <small class="text-muted">import custom code</small>
           </fieldset>
           <fieldset class="form-group">
             <label for="type">Type</label>

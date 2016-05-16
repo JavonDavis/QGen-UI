@@ -1,8 +1,8 @@
-import moodle_xml_builder as mxb
-import markdown2
 from random import choice
-from qgen.qgen_exceptions import EvaluationException
-from qgen.build_helpers import evaluate_functions, evaluate_blocks, validate_question
+
+import markdown2
+from QGen.qgen.build_helpers import evaluate_functions, evaluate_blocks, validate_question
+from QGen.qgen.qgen_exceptions import EvaluationException
 
 """Functions to generate questions in different formats"""
 
