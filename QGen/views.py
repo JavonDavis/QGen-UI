@@ -40,13 +40,14 @@ def add_param(request):
     param_list = ['param_name_1', 'param_name_2', 'param_name_3']
     value_list = ['param_value_1', 'param_value_2', 'param_value_3']
     generator_dict = {}
-    for index in range(3):
-        param = param_list[index]
+    for dict_index in range(3):
+        param = param_list[dict_index]
         if param in data_dict.keys() and data_dict[param]:
-            generator_dict[normalise(data_dict[param])] = normalise(data_dict[value_list[index]])
+            generator_dict[normalise(data_dict[param])] = normalise(data_dict[value_list[dict_index]])
     generator_holder_dict = {normalise(data_dict['function_name']): generator_dict}
     params[normalise(data_dict['name'])] = generator_holder_dict
     return HttpResponse("Successfully added")
+
 
 @csrf_exempt
 def remove_param(request):
@@ -67,9 +68,13 @@ def generate(request):
     if request.method == 'POST':
         data = request.POST
         qgen_dict = {}
+
+        count = data['count']
+
         title = normalise(data['title'])
         file_title = title.replace(' ', '')
         qgen_dict['title'] = title
+
         if data['type'] == 'Multiple Choice':
             qgen_dict['type'] = 'multichoice'
         qgen_dict['correct_feedback'] = ''
@@ -94,7 +99,7 @@ def generate(request):
                 else:
                     qgen_dict['distractor'].append(normalise(data[answer_field]))
         final_dict = {file_title: qgen_dict}
-        result = qgen.build_moodle_xml(dict_value=final_dict, question=file_title)
+        result = qgen.build_moodle_xml(dict_value=final_dict, number_of_questions=int(count))
         response = HttpResponse(content_type='application/force-download')
         file_title = title.lower().replace(" ", "_")
         response['Content-Disposition'] = 'attachment; filename=%s' % (smart_str(file_title) + ".xml")

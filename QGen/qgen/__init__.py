@@ -1,1 +1,1 @@
-from QGen.qgen.qgen import *
+from .qgen import *

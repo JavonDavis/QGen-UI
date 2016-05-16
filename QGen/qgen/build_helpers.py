@@ -1,11 +1,30 @@
-from QGen.qgen.qgen import functions
-import random
+from qgen import functions
+from random import choice
+from qgen_exceptions import EvaluationException
 
 """Helper functions that are essential to the construction of questions"""
 
 
+# to help decide if a question is valid
+question_list = []
+
+
+# TODO - check if any case where the parameters might be needed to evaluate the eval blocks
 def evaluate_blocks(text, params):
     """Evaluates the code blocks delimited by a $ in a question's answer or distractor"""
+    # TODO - pick a random value from a parameter
+    def params_get(*args):
+        return choice(params[choice(args)])
+
+    # TODO - pick a random value from a random parameter except these specified
+    def params_except(*args):
+        keys = params.keys()
+        for arg in args:
+            keys.remove(arg)
+        return choice(params[choice(keys)])
+    text = text.replace("\$", "esCA")
+    if text.count("$") % 2 != 0:
+        raise EvaluationException("Incorrect number of $ found in a block")
     while "$" in text:
         start_index = text.index('$')
         end_index = text.index('$', start_index + 1) + 1
@@ -16,14 +35,14 @@ def evaluate_blocks(text, params):
         # remove leading and trailing $
         eval_block = substr[1:-1]
 
-        # fill in arguments
-        eval_block = eval_block.format(**params)
         text = text.replace(substr, str(eval(eval_block)))
+    text = text.replace("esCA", "$")
     return text
 
 
 def evaluate_functions(text, params):
     """Evaluates the functions delimited by a @ in a question's answer or distractor"""
+    text = text.replace("\@", "esAM")
     while "@" in text:
         start_index = text.index('@')
         end_index = text.index('@', start_index + 1) + 1
@@ -34,46 +53,38 @@ def evaluate_functions(text, params):
         function_name = eval_block
 
         text = text.replace(substr, str(functions[function_name](params)))
+    text = text.replace("esCA", "@")
     return text
 
 
-def evaluate_braces(text, params, params_cache):
-    """Evaluates variables enclosed in braces"""
-    while "[" in text:
-        start_index = text.index('[')
-        end_index = text.index(']', start_index + 1) + 1
-        substr = text[start_index:end_index]
+def validate_question(body, answers, distractors):
+    answers, distractors = validate_answer_distractor(answers, distractors)
+    if answers:
+        if not valid_question(body, answers, distractors):
+            return None
+        return body, answers, distractors
+    else:
+        return None
 
-        eval_block = substr[1:len(substr) - 1]
 
-        choices = eval_block.split(",")
-        variables = []
-        unwanted = []
+def valid_question(body, answers, distractors):
+    description = (body, set(answers), set(distractors))
 
-        for choice in choices:
-            choice = choice.strip()
-            if choice == "all":
-                for var in params_cache:
-                    if params_cache[var]:
-                        variables.append(var.strip())
-            elif choice[0] == '~':
-                var = choice[1:]
-                if var in params:
-                    unwanted.append(params[var].strip())
-                else:
-                    unwanted.append(choice)
-            elif choice in params and params[choice].strip() in params:
-                result = params[params[choice].strip()]
-                text = text.replace(substr, str(result))
-                return text
-            else:
-                if params_cache[choice]:
-                    variables.append(choice)
-            for var in unwanted:
-                if var in variables:
-                    variables.remove(var)
+    if description in question_list:
+        is_valid = False
+    else:
+        is_valid = True
+        question_list.append(description)
+    return is_valid
 
-        index = random.randint(0, len(variables)-1)
-        result = params_cache[variables[index]].pop()
-        text = text.replace(substr, str(result))
-    return text
+
+def validate_answer_distractor(answers, distractors):
+    answer_list = []
+    distractor_list = []
+    for answer in answers:
+        if answer not in answer_list:
+            answer_list.append(answer)
+    for distractor in distractors:
+        if distractor not in distractor_list:
+            distractor_list.append(distractor)
+    return answer_list, distractor_list
