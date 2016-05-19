@@ -1,13 +1,17 @@
-from django.shortcuts import render
-from django.http import HttpResponse
-from django.http import HttpResponseRedirect
-from QGen.qgen import qgen
-import unicodedata
 import os
+import unicodedata
 
-# Create your views here.
+from django.http import HttpResponse
+from django.shortcuts import render
+from django.utils.datastructures import MultiValueDictKeyError
+
+from QGen.qgen import qgen
+
+# Views created here.
 from django.views.decorators.csrf import csrf_exempt
 from django.utils.encoding import smart_str
+
+from QGen.qgen.qgen_exceptions import EvaluationException, InvalidConfigException
 
 params = {}
 
@@ -18,14 +22,6 @@ def index(request):
 
 def demo(request):
     return render(request, 'demo.html')
-
-
-def test(request):
-    return render(request, 'test.html')
-
-
-def thanks(request):
-    return render(request, 'thanks.html')
 
 
 @csrf_exempt
@@ -127,11 +123,16 @@ def generate(request):
             response['Content-Disposition'] = 'attachment; filename=%s' % (smart_str(file_title) + ".xml")
 
             response['X-Sendfile'] = smart_str(os.getcwd() + '/generated_quizzes/%s.xml' % file_title)
-            # It's usually a good idea to set the 'Content-Length' header too.
-            # You can also set any other required headers: Cache-Control, etc.
             response.write(result)
             return response
-            # return render(request, 'data.xml', {'result':result})
-        return render(request, 'demo.html')
+        return render(request, 'thanks.html')
     except ValueError as e:
+        return HttpResponse("Error generating file: {0}".format(e.message))
+    except MultiValueDictKeyError as e:
+        return HttpResponse("Error generating file: {0}".format(e.message))
+    except KeyError as e:
+        return HttpResponse("Error generating file: {0}".format(e.message))
+    except EvaluationException as e:
+        return HttpResponse("Error generating file: {0}".format(e.message))
+    except InvalidConfigException as e:
         return HttpResponse("Error generating file: {0}".format(e.message))
