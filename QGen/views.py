@@ -76,10 +76,10 @@ def generate(request):
             data = request.POST
             qgen_dict = {}
 
-            uploaded_file = request.FILES['file']
-
-            if uploaded_file:
-                handle_uploaded_file(uploaded_file)
+            if 'file' in request:
+                uploaded_file = request.FILES['file']
+                if uploaded_file:
+                    handle_uploaded_file(uploaded_file)
 
             count = data['count']
 
