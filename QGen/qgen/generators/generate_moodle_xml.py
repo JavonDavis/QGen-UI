@@ -43,7 +43,9 @@ def gen_question(question):
             answer = evaluate_blocks(answer, question.params_cache)
         except Exception as e:
             raise EvaluationException("{0} - {1}".format(answer_cache, e.message))
-        answer = container % markdown2.markdown(answer)
+
+        if question.type == "multichoice":
+            answer = container % markdown2.markdown(answer)
         answers.append(answer)
 
     distractors = []
@@ -56,7 +58,9 @@ def gen_question(question):
             distractor = evaluate_blocks(distractor, question.params_cache)
         except Exception as e:
             raise EvaluationException("{0} - {1}".format(distractor_cache, e.message))
-        distractor = container % markdown2.markdown(distractor)
+
+        if question.type == "multichoice":
+            distractor = container % markdown2.markdown(distractor)
         distractors.append(distractor)
 
     return validate_question(body_for_xml, answers, distractors)

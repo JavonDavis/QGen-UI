@@ -89,6 +89,15 @@ def generate(request):
 
             if data['type'] == 'Multiple Choice':
                 qgen_dict['type'] = 'multichoice'
+            elif data['type'] == 'Short Answer':
+                qgen_dict['type'] = 'shortanswer'
+            elif data['type'] == 'True or False':
+                qgen_dict['type'] = 'truefalse'
+            elif data['type'] == 'Cloze':
+                qgen_dict['type'] = 'cloze'
+            elif data['type'] == 'Numerical':
+                qgen_dict['type'] = 'numerical'
+
             qgen_dict['correct_feedback'] = ''
             qgen_dict['incorrect_feedback'] = ''
             qgen_dict['correct_answer_weight'] = ''
