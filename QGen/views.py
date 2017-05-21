@@ -135,7 +135,7 @@ def generate(request):
     except MultiValueDictKeyError as e:
         return HttpResponse("MultiValue dict Error generating file: {0}".format(e.message))
     except KeyError as e:
-        return HttpResponse("Key Error generating file: {0} {}".format(e.message, params))
+        return HttpResponse("Key Error generating file: {0}".format(e.message))
     except EvaluationException as e:
         return HttpResponse("Evaluation Error generating file: {0}".format(e.message))
     except InvalidConfigException as e:
