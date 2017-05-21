@@ -63,3 +63,5 @@ target/
 
 #Ipython Notebook
 .ipynb_checkpoints
+/private_info.txt
+/github_token
