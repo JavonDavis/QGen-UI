@@ -20,6 +20,7 @@ from QGen import views
 urlpatterns = [
     url(r'^$', views.index, name='index'),
     url(r'^demo/', views.demo, name='demo'),
+    url(r'^about/', views.about, name='about'),
     url(r'^gen/', views.generate, name='generate'),
     url(r'^add/', views.add_param, name='add'),
     url(r'^del/', views.remove_param, name='del'),

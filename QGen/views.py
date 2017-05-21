@@ -24,6 +24,10 @@ def demo(request):
     return render(request, 'demo.html')
 
 
+def about(request):
+    return render(request, 'about.html')
+
+
 @csrf_exempt
 def add_param(request):
     data = request.POST['data']

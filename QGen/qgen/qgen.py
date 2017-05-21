@@ -8,7 +8,7 @@ import generators.moodle_xml_builder as mxb
 class Question(object):
     COMPULSORY_CONFIGS = ['type', 'title', 'answer', 'body']  # Tags that need to be in the template
 
-    """Class to model a generate questions"""
+    """Class to model a generated question"""
 
     def __init__(self, configuration, question_count=0):
         self.question_params = {}
@@ -54,9 +54,11 @@ class Question(object):
                             functions[name] = value
                 except AttributeError as e:
                     print e
+                except ImportError as e:
+                    print e
 
     def build_question_params(self, params):
-        """Binds the parameters to there actual values"""
+        """Binds the parameters to their actual values"""
         list_params = None
         for parameter_name, function_name in params.iteritems():
             for function_param, arguments in function_name.iteritems():
