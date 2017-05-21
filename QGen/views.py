@@ -131,12 +131,12 @@ def generate(request):
             return response
         return render(request, 'thanks.html')
     except ValueError as e:
-        return HttpResponse("Error generating file: {0}".format(e.message))
+        return HttpResponse("Value Error generating file: {0}".format(e.message))
     except MultiValueDictKeyError as e:
-        return HttpResponse("Error generating file: {0}".format(e.message))
+        return HttpResponse("MultiValue dict Error generating file: {0}".format(e.message))
     except KeyError as e:
-        return HttpResponse("Error generating file: {0}".format(e.message))
+        return HttpResponse("Key Error generating file: {0}".format(e.message))
     except EvaluationException as e:
-        return HttpResponse("Error generating file: {0}".format(e.message))
+        return HttpResponse("Evaluation Error generating file: {0}".format(e.message))
     except InvalidConfigException as e:
-        return HttpResponse("Error generating file: {0}".format(e.message))
+        return HttpResponse("Invalid Config Error generating file: {0}".format(e.message))
