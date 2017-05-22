@@ -46,7 +46,7 @@ def add_param(request):
             generator_dict[normalise(data_dict[param])] = normalise(data_dict[value_list[dict_index]])
     generator_holder_dict = {normalise(data_dict['function_name']): generator_dict}
     params[normalise(data_dict['name'])] = generator_holder_dict
-    return HttpResponse("Successfully added")
+    return HttpResponse("Successfully added"+str(params))
 
 
 @csrf_exempt
