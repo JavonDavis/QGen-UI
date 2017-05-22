@@ -1,0 +1,39 @@
+#container{
+	width:80%;
+	margin: 0 auto;
+}
+
+.title{
+	font-family: 'Quicksand';
+	color: #009FCE;
+}
+
+
+#list{
+	width: 60%;
+	float: left;
+
+}
+
+#add_new{
+	width: 40%;
+	float:right;
+}
+
+.list_item{
+	border: solid 1px #00CEF9;
+	font-family: 'Quicksand';
+	border-radius: 5px;
+	height: 40px;
+	align-content: center;
+	text-align: center;
+	padding: 5px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+
+}
+
+.close_btn:hover {
+    color: #EFACAC;
+    cursor: pointer;
+}

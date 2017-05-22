@@ -16,13 +16,9 @@ import os
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
+# Useless KEY at the moment, remember not to keep any actual key in here
 SECRET_KEY = '9fxxg-0o4nf6k*+-4sm8m#=g!_f+vpgl8vni$4am!i#g*nq86a'
 
-# SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
 ALLOWED_HOSTS = ['104.131.86.146']
@@ -38,6 +34,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'QGen',
+    'QGenPY',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -116,7 +113,7 @@ USE_L10N = True
 USE_TZ = True
 
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/1.9/howto/static-files/
 
 STATIC_URL = '/static/'
+STATICFILES_DIRS = (os.path.join(BASE_DIR, 'QGen/static/'),)
+STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
