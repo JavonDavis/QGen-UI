@@ -31,6 +31,7 @@ def about(request):
 
 @csrf_exempt
 def add_param(request):
+    global params
     data = request.POST['data']
     data_dict = {}
     values = data.split("&")
@@ -73,6 +74,7 @@ def handle_uploaded_file(f):
 
 
 def generate(request):
+    global params
     try:
         if request.method == 'POST':
             data = request.POST
