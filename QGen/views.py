@@ -10,6 +10,7 @@ from QGen.qgen import qgen
 # Views created here.
 from django.views.decorators.csrf import csrf_exempt
 from django.utils.encoding import smart_str
+from logging import debug
 
 from QGen.qgen.qgen_exceptions import EvaluationException, InvalidConfigException
 
@@ -46,6 +47,7 @@ def add_param(request):
             generator_dict[normalise(data_dict[param])] = normalise(data_dict[value_list[dict_index]])
     generator_holder_dict = {normalise(data_dict['function_name']): generator_dict}
     params[normalise(data_dict['name'])] = generator_holder_dict
+    debug(str(params))
     return HttpResponse("Successfully added")
 
 
@@ -107,6 +109,7 @@ def generate(request):
             qgen_dict['answer'] = []
             qgen_dict['distractor'] = []
             qgen_dict['imports'] = ["Functions"]
+            debug(str(params))
 
             answers_fields = ['answer1', 'answer2', 'answer3', 'answer4', 'answer5']
             checkboxes = ['isAnswer1Correct', 'isAnswer2Correct', 'isAnswer3Correct', 'isAnswer4Correct',
